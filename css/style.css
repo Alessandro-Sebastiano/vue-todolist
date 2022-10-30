@@ -1,0 +1,260 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+:root {
+    /* colors */
+    --background: #edf6f9;
+    --danger: #e63946;
+    --border: #457b9d;
+    --button: #1d3557;
+    --light: #fff;
+    --task: #a8dadc;
+}
+
+body {
+    font-family: 'Inconsolata', monospace;
+}
+
+
+
+.app-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 120px 20px;
+    overflow: hidden;
+    position: relative;
+    background-color: var(--background);
+}
+
+
+.my-alert {
+    position: absolute;
+    top: 22px;
+    width: 360px;
+    background-color: var(--danger);
+    padding: 14px 0px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 800;
+    transform: translateY(-120%);
+    opacity: 0;
+    transition: all 0.4s ease-in-out;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+
+.error {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+.title {
+    position: absolute;
+    top: 36px;
+    font-size: 3.2rem;
+    font-weight: 700;
+    color: #457b9d;
+}
+
+
+.todo-box {
+    width: 50%;
+    min-width: 500px;
+    height: 100%;
+    background-color: var(--background);
+    border: 2px solid var(--border);
+    box-shadow: 1px 3px 11px 1px rgba(0, 0, 0, 0.74);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+
+
+.user-controls {
+    width: 100%;
+    padding: 24px 20px;
+    max-height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+
+.user-input {
+    width: 60%;
+    min-width: 140px;
+    padding: 12px 26px;
+    border-radius: 20px;
+    border: 3px solid var(--border);
+    color: var(--border);
+    background-color: transparent;
+    font-weight: 700;
+    transition: all 0.4s ease;
+}
+
+.user-input::placeholder {
+    color: var(--border);
+}
+
+.user-input:focus {
+    outline: none;
+    text-decoration: underline;
+    transform: scale(1.1);
+}
+
+
+.add-btn {
+    width: 30%;
+    height: 50px;
+    max-width: 120px;
+    min-width: 40px;
+    padding: 12px 10px;
+    background-color: var(--button);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    color: var(--light);
+    font-weight: 800;
+    transition: all 0.4s;
+}
+
+.changebtn {
+    border-radius: 50%;
+    width: 55px;
+    height: 55px;
+    padding: 0;
+    font-size: 1.6rem;
+}
+
+
+
+
+
+.user-tasks {
+    padding: 0px 34px;
+    height: calc(100% - 100px);
+}
+
+.list-tasks {
+    height: 100%;
+    padding: 10px;
+    overflow: auto;
+}
+
+
+.list-tasks::-webkit-scrollbar {
+    width: 8px;
+    border-radius: 12px;
+    background-color: var(--button);
+}
+
+
+.list-tasks::-webkit-scrollbar-thumb {
+    background-color: var(--border);
+    border-radius: 8px;
+}
+
+
+.list-tasks ul {
+    list-style: none;
+}
+
+
+.list-tasks ul li {
+    min-height: 48px;
+    background-color: var(--task);
+    border-radius: 10px;
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 12px 0px;
+}
+
+
+.list-tasks ul li span {
+    max-width: 70%;
+    height: auto;
+    word-wrap: break-word;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+
+.removetask {
+    transform: translateX(-100%);
+    opacity: 0;
+    transition: all 0.6s ease-in-out;
+}
+
+
+
+.icons-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-check {
+    width: 30px;
+    height: 30px;
+    border: 2px solid var(--button);
+    color: var(--button);
+    border-radius: 50%;
+    margin: 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+
+.checked {
+    color: var(--border);
+    border: 2px solid var(--border);
+}
+
+.checkedtext {
+    text-decoration: line-through;
+    color: var(--border);
+}
+
+.active {
+    animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+    transform: translate3d(0, 0, 0);
+    background-color: var(--danger);
+}
+
+@keyframes shake {
+
+    10%,
+    90% {
+        transform: translate3d(-1px, 0, 0);
+    }
+
+    20%,
+    80% {
+        transform: translate3d(2px, 0, 0);
+    }
+
+    30%,
+    50%,
+    70% {
+        transform: translate3d(-4px, 0, 0);
+    }
+
+    40%,
+    60% {
+        transform: translate3d(4px, 0, 0);
+    }
+}
